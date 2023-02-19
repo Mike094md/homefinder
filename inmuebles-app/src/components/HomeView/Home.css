@@ -1,0 +1,136 @@
+.main-home{
+    
+}
+
+.background-img-home{
+    background-image: url('../../imgs/img-reg2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 312px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.searcher{
+    background-color: azure;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 150px;
+    border-radius: 10px;
+    position: relative;
+    top: 150px;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+}
+.title-searcher{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+
+input[type="radio"]{
+    display: none;
+}
+
+.operation-radio-group label{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    user-select: none;
+    cursor: pointer;
+}
+
+.radio-button-comprar{
+    border-radius: 5px 0 0 5px;
+}
+
+.radio-button-alquilar{
+    border-radius:  0 5px 5px 0;
+}
+
+.radio-button:hover{
+    background-color: rgb(195, 215, 253);
+
+}
+
+
+input[type="radio"]:checked + label {
+    background-color: rgb(64, 120, 240);
+    color: white;
+  }
+
+.type-property-select{
+    width: 10rem;
+    height: 30px;
+    padding: 0 .5rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    border: none;
+    user-select: none;
+    outline: none;
+}
+
+.locality-input{
+    width: 20rem;
+    height: 30px;
+    padding: 0 .5rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    border: none;
+    user-select: none;
+    outline: none;
+}
+
+.button-search{
+    width: 7rem;
+    height: 30px;
+    padding: 0 .5rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    border: none;
+    user-select: none;
+    outline: none;
+    background-color: rgb(53, 167, 72);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.button-search:hover{
+    background-color: rgb(38, 119, 52);
+}
+
+.section-cards{
+    padding-top: 100px;
+    min-height: 350px;
+    background-color: rgb(219, 235, 255);
+}
+
+.section-card-buy{
+    background-color: rgb(244,244,251);
+    padding: 3rem;
+}
+
+.section-card-buy-div{
+    display: flex;
+    border-radius: 10px;
+    background-color: rgb(48,58,178);
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+}
+
+.section-card-buy-text{
+    padding: 15px 10px;
+}

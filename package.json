@@ -1,0 +1,22 @@
+{
+  "name": "homefinder-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "workspaces": [
+    "express",
+    "inmuebles-app"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build --workspace=inmuebles-app",
+    "start": "npm run start --workspace=express",
+    "dev:api": "npm run build && npm run dev --workspace=express"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.4.3"
+  }
+}

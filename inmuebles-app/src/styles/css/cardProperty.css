@@ -1,0 +1,48 @@
+
+.arrow-img-forward, .arrow-img-backward {
+    background-color: white;
+    padding: 2px;
+    border-radius: 100%;
+    color: #000;
+    position: absolute;
+    top: 25%;
+    font-size: 2rem;
+    opacity: 0.5;
+    cursor: pointer;
+    ;
+}
+
+.heart-icon, .heart-icon2{
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+.heart-icon2{
+    color: #f00;
+}
+
+.heart-icon:hover, .heart-icon2:hover{
+    cursor: pointer;
+}
+
+.arrow-img-forward{
+    left: 85%;
+}
+.arrow-img-backward{
+    right: 85%;
+}
+
+.card-property-img{
+    cursor: pointer;
+}
+
+.card-property-img:hover{
+    cursor: pointer;
+}
+
+.arrow-img-backward:hover, .arrow-img-forward:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+
