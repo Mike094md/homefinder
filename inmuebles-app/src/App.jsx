@@ -20,6 +20,7 @@ import FavProperties from "./components/FavProperties";
 import RentSection from "./components/RentSection";
 import Messages from "./components/Messages";
 import UserProperties from "./components/UserProperties";
+import PropertyDetails from "./components/PropertiesView/PropertyDetails";
 
 
 const ProtectedRoute = ({ children }) => {
@@ -67,6 +68,7 @@ function App() {
             <Route path="publicados" element={<ProtectedRoute><UserProperties /></ProtectedRoute>} />
             <Route path="comprar" element={<BuySection/>} />
             <Route path="alquilar" element={<RentSection />} />
+            <Route path="property_details/:id_property" element={<PropertyDetails />} />
           </Route>
         </Routes>
       </Router>

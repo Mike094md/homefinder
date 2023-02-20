@@ -2,13 +2,13 @@
 
 ## Front-end
 
-- [ ] Diseñar el Home
+- [X] Diseñar el Home
 - [X] Conseguir guardar una imagen en la base de datos y mostrarla
 - [ ] Implementar cada item property (terminar)
   - [X] Si la propiedad es del usuario que no se muestre el boton Contactar
   - [ ] SI NO ESTA LOGEADO?? Se muestra o no? y like?
 - [ ] Cuando haces click en una property se muestre el detalle
-- [ ] Mostrar todas las properties como items dentro de los publicados del usuario
+- [X] Mostrar todas las properties como items dentro de los publicados del usuario
 - [X] Obtener todas las properties en el front
 - [X] Controlar los labels del PropertyForm si no es un piso
 - [X] Actualizar el estado de las properties liked del usuario cuando este da a me gusta
@@ -18,10 +18,11 @@
 
 ### To Fixe
 - [X] Cuando se quita un me gusta se eliminan todos, debería eliminarse solo el clicado
+- [ ] No sale el input radio del tipo de operacion en el formulario de nuevo inmueble
 - [ ] Una vez hecho el formulario de creacion de una propiedad borralo o que te mande al Home
-- [ ] No se actualiza bien el boton de me gusta en cada carta de property
-- [ ] No debería aparecer el boton de like si es la propiedad del usuario logeado
-- [ ] Arreglar npm run build (No salen las imagenes de los inmuebles)
+- [ ] Cada vez que se da a me gusta, en favoritos no se actualiza la card con el boton en rojo (Solo pasa si tenemos un like)
+- [X] No debería aparecer el boton de like si es la propiedad del usuario logeado
+- [X] Arreglar npm run build (No salen las imagenes de los inmuebles)
 ## Back-end
 
 - [X] Revisar la creación de una property

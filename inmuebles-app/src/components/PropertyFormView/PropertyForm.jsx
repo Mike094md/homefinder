@@ -8,14 +8,14 @@ import ImagesGrid from "./ImagesGrid";
 // import Row from "react-bootstrap/Row";
 // import Col from "react-bootstrap/Col";
 // import ButtonGroup from "react-bootstrap/ButtonGroup";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import PropertiesContext from "../../context/PropertiesProvider";
 import notesServices from "../../services/notes";
 import propertiesServices from "../../services/properties";
 
 export default function PropertyForm() {
   const [images, setImages] = useState([]);
-  const { register, handleSubmit, watch, errors, getValues } = useForm({
+  const { register, control, handleSubmit, watch, errors, getValues } = useForm({
     defaultValues: {
       type: "Piso",
       operation: "alquiler",
@@ -50,7 +50,7 @@ export default function PropertyForm() {
     }
   }, []);
 
-  const handleCreateProperty = async (data) => {
+  const handleCreateProperty = async (data, e) => {
     // Obtener las imagenes del state y pasarlas al objeto data
     //data.images = images;
     //console.log(data)
@@ -78,7 +78,7 @@ export default function PropertyForm() {
     // Obtener el token del context
     // lamar al servicio de crear propiedad con el token mifuncion(token)
     
-    
+    e.target.reset(); // reset after form submit
   };
 
   return (
@@ -148,7 +148,6 @@ export default function PropertyForm() {
             label="Alquiler"
             name="operation"
             value="alquiler"
-            id="AlquilerRadio"
             {...register("operation", { required: true })}
           />
           <Form.Check
@@ -156,7 +155,6 @@ export default function PropertyForm() {
             label="Venta"
             name="operation"
             value="venta"
-            id="VentaRadio"
             {...register("operation", { required: true })}
           />
         </Form.Group>

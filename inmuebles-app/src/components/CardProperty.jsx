@@ -114,6 +114,9 @@ const CardProperty = ({ ...props }) => {
     setShowModalMessage(false)
   }
   
+  const seeDetail = () =>{
+    navigate(`/property_details/${props.id}`, { state: props } )
+  }
 
 
 
@@ -153,9 +156,10 @@ const CardProperty = ({ ...props }) => {
         </Modal.Footer>
       </Modal>
     <Card
-      style={{ height: "22rem", boxShadow: "0px 0px 10px #e5e5e5" }}
+      style={{ height: "23rem", boxShadow: "0px 0px 10px #e5e5e5", cursor: "pointer" }}
       onMouseEnter={() => setShowArrows(true)}
       onMouseLeave={() => setShowArrows(false)}
+      onClick={seeDetail}
     >
       <div style={imgsStyle} />
       {showArrows && (
@@ -177,6 +181,9 @@ const CardProperty = ({ ...props }) => {
         <Card.Text>
           {props.type} en {props.address.nombreVia}, {props.address.localidad}
         </Card.Text>
+        <Card.Text>
+          {props.description}
+        </Card.Text>
         {
 
           user?.id !== props.user.id && 
@@ -187,7 +194,13 @@ const CardProperty = ({ ...props }) => {
 
         }
 
-        { gustado ? (<HiHeart className="heart-icon2" onClick={deleteLiked} />) : (<HiOutlineHeart className="heart-icon" onClick={addLiked} />) }
+        { 
+          user?.id !== props.user.id
+          ?
+          gustado ? (<HiHeart className="heart-icon2" onClick={deleteLiked} />) : (<HiOutlineHeart className="heart-icon" onClick={addLiked} />) 
+          :
+          null
+        }
       </Card.Body>
     </Card>
     </>
