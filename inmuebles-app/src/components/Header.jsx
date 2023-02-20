@@ -128,11 +128,11 @@ export default function Header() {
       </Container>
     </Navbar>
     <Outlet />
-    <footer>
+    {/* <footer>
       <Container fluid className="footer-app">
         <p className="text-center">HomeFinder 2021</p>
       </Container>
-    </footer>
+    </footer> */}
     </>
   );
 }

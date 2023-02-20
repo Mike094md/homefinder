@@ -38,9 +38,9 @@ input[type="radio"]{
 }
 
 .operation-radio-group label{
+    width: 50%;
     display: inline-block;
     box-sizing: border-box;
-    width: 100px;
     height: 30px;
     line-height: 30px;
     text-align: center;
@@ -70,7 +70,7 @@ input[type="radio"]:checked + label {
   }
 
 .type-property-select{
-    width: 10rem;
+    width: 100%;
     height: 30px;
     padding: 0 .5rem;
     border-radius: 5px;
@@ -81,7 +81,7 @@ input[type="radio"]:checked + label {
 }
 
 .locality-input{
-    width: 20rem;
+    width: 100%;
     height: 30px;
     padding: 0 .5rem;
     border-radius: 5px;
@@ -92,7 +92,7 @@ input[type="radio"]:checked + label {
 }
 
 .button-search{
-    width: 7rem;
+    width: 100%;
     height: 30px;
     padding: 0 .5rem;
     border-radius: 5px;
@@ -132,5 +132,6 @@ input[type="radio"]:checked + label {
 }
 
 .section-card-buy-text{
-    padding: 15px 10px;
+    padding: 15px 25px;
+    font-size: 14px;
 }
