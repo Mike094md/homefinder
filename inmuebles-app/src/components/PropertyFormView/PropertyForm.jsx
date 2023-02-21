@@ -167,7 +167,7 @@ export default function PropertyForm() {
           <Form.Control
             className="mb-2"
             type="number"
-            {...register("precio", { required: true })}
+            {...register("precio", { required: true, validate:  (value) => value > 0  })}
           />
         </Form.Group>
 
@@ -189,7 +189,7 @@ export default function PropertyForm() {
           <Form.Control
             className="mb-2"
             type="number"
-            {...register("nVia", { required: true })}
+            {...register("nVia", { required: true, validate:  (value) => value > 0 })}
           />
           {watch("type") === "Piso" && (
             <>
@@ -197,7 +197,7 @@ export default function PropertyForm() {
               <Form.Control
                 className="mb-2"
                 type="planta"
-                {...register("planta", { required: true })}
+                {...register("planta", { required: true, validate:  (value) => value >= 0 })}
               />
               <Form.Label>Puerta</Form.Label>
               <Form.Control

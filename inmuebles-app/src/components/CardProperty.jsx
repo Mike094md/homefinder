@@ -159,7 +159,6 @@ const CardProperty = ({ ...props }) => {
       style={{ height: "23rem", boxShadow: "0px 0px 10px #e5e5e5", cursor: "pointer" }}
       onMouseEnter={() => setShowArrows(true)}
       onMouseLeave={() => setShowArrows(false)}
-      onClick={seeDetail}
     >
       <div style={imgsStyle} />
       {showArrows && (
@@ -174,7 +173,7 @@ const CardProperty = ({ ...props }) => {
           />
         </>
       )}
-      <Card.Body style={{ userSelect: "none" }}>
+      <Card.Body style={{ userSelect: "none" }} onClick={seeDetail}>
         <Card.Title className="d-flex align-items-center">
           {props.price} <MdEuroSymbol />
         </Card.Title>

@@ -78,6 +78,7 @@ input[type="radio"]:checked + label {
     border: none;
     user-select: none;
     outline: none;
+    cursor: pointer;
 }
 
 .locality-input{
