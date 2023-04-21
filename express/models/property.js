@@ -22,6 +22,8 @@ const propertySchema = new mongoose.Schema({
   },
   floor: Number, //2º  estos dos campos son opcionales dependiendo de si se trata de un piso o de un chalet
   door: String, //B
+  baths: Number,
+  rooms: Number,
   price: {
     type: Number,
     required: true,

@@ -6,7 +6,7 @@
 - [X] Conseguir guardar una imagen en la base de datos y mostrarla
 - [ ] Implementar cada item property (terminar)
   - [X] Si la propiedad es del usuario que no se muestre el boton Contactar
-  - [ ] SI NO ESTA LOGEADO?? Se muestra o no? y like?
+  - [X] SI NO ESTA LOGEADO?? Se muestra o no? y like?
 - [ ] Cuando haces click en una property se muestre el detalle
 - [X] Mostrar todas las properties como items dentro de los publicados del usuario
 - [X] Obtener todas las properties en el front

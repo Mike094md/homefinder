@@ -23,7 +23,7 @@ const CardProperty = ({ ...props }) => {
   const [showModalMessage, setShowModalMessage] = React.useState(false);
 
   const { user, setUser } = useContext(PropertiesContext);
-
+  console.log("USER", user);
   const navigate = useNavigate();
   const refText = useRef(null);
 
@@ -42,8 +42,11 @@ const CardProperty = ({ ...props }) => {
       return;
     }
     // SI EL USUARIO YA ESTA LOGGEADO, COMPROBAMOS SI YA LE HA DADO A GUSTADO A ESTA PROPIEDAD
-    if (user?.liked?.length > 0 && user?.liked?.includes(props?.id)) {
+    if (user?.liked?.length > 1 && user?.liked?.includes(props?.id)) {
       setGustado(true);
+    }else if (user?.liked?.length > 0 ) {
+      const findID = user.liked.find(liked=> props.id ===liked.id);
+      findID ? setGustado(true) : null;
     }
   }, [user?.liked]);
 
@@ -73,6 +76,10 @@ const CardProperty = ({ ...props }) => {
 
   const addLiked = async () => {
     const token = JSON.parse(window.localStorage.getItem("token"));
+    if (user === null) {
+      // navigate ("/login")
+      navigate("/login")
+    }
     await userServices
       .addLiked({ propertyId: props.id }, token)
       .then((res) => {
@@ -173,7 +180,8 @@ const CardProperty = ({ ...props }) => {
           />
         </>
       )}
-      <Card.Body style={{ userSelect: "none" }} onClick={seeDetail}>
+      {/* onClick={seeDetail} */}
+      <Card.Body style={{ userSelect: "none" }} >
         <Card.Title className="d-flex align-items-center">
           {props.price} <MdEuroSymbol />
         </Card.Title>
@@ -194,7 +202,8 @@ const CardProperty = ({ ...props }) => {
         }
 
         { 
-          user?.id !== props.user.id
+          //user?.id !== props.user.id 
+          true
           ?
           gustado ? (<HiHeart className="heart-icon2" onClick={deleteLiked} />) : (<HiOutlineHeart className="heart-icon" onClick={addLiked} />) 
           :
