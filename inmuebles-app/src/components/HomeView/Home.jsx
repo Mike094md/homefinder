@@ -20,16 +20,47 @@ import Image from "react-bootstrap/Image";
 import imgSale from "../../imgs/for-sale.jpg";
 import imgContact from "../../imgs/contact-img.jpg";
 import imgBuyHome from "../../imgs/buy_house.png";
+import { useForm } from "react-hook-form";
 
 export default function Home() {
   const [properties, setProperties] = React.useState([]);
   const [selectedOperation, setSelectedOperation] = useState("comprar");
+  const [city, setCity] = useState("")
+
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
   const { user, setUser } = React.useContext(PropertiesContext);
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    } else {
+      console.log("La geolocalización no está disponible");
+    }
+  
+    function successCallback(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      console.log("Latitud: " + latitude + ", Longitud: " + longitude);
+  
+      // Llamada a la API de geocodificación inversa
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyD1CeuX53fRhKDSVhyHAMByZsUGFahOfts`)
+        .then(response => response.json())
+        .then(data => {
+          // Obtener el nombre de la ciudad desde la respuesta de la API
+          const city = data.results[0].address_components.find(component => component.types.includes('locality')).long_name;
+          setCity(city)
+          console.log("Ciudad del usuario: " + city);
+        })
+        .catch(error => console.log(error));
+    }
+  
+    function errorCallback(error) {
+      console.log("Error al obtener la ubicación: " + error.message);
+    }
+
     propertiesService.getAll().then((response) => {
       setProperties(response);
     });
@@ -45,12 +76,14 @@ export default function Home() {
               <Col>
                 <div className="operation-radio-group">
                   <input
+                    className="radio-operation-home"
                     type="radio"
                     id="comprar-operation"
                     name="operation"
                     value="comprar"
                     checked={selectedOperation === "comprar"}
                     onChange={(e) => setSelectedOperation(e.target.value)}
+                    {...register("operation")}
                   />
                   <label
                     htmlFor="comprar-operation"
@@ -59,12 +92,14 @@ export default function Home() {
                     Comprar
                   </label>
                   <input
+                    className="radio-operation-home"
                     type="radio"
                     id="alquilar-operation"
                     name="operation"
                     value="alquilar"
                     checked={selectedOperation === "alquilar"}
                     onChange={(e) => setSelectedOperation(e.target.value)}
+                    {...register("operation")}
                   />
                   <label
                     htmlFor="alquilar-operation"
@@ -76,17 +111,18 @@ export default function Home() {
               </Col>
 
               <Col xs={2} md={3}>
-                <select className="type-property-select">
-                  <option value="1">Piso</option>
-                  <option value="2">Casa</option>
-                  <option value="3">Chalet</option>
+                <select className="type-property-select" {...register("type")}>
+                  <option value="piso">Piso</option>
+                  <option value="casa">Casa</option>
+                  <option value="chalet">Chalet</option>
                 </select>
               </Col>
               <Col md={4}>
                 <input
                   type="text"
-                  placeholder="Ciudad, Provincia, barrio..."
+                  placeholder="Ciudad"
                   className="locality-input"
+                  value = {city.length > 0 ? city: null } 
                 />
               </Col>
               <Col xs={2}>

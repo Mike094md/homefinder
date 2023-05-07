@@ -15,7 +15,7 @@ import propertiesServices from "../../services/properties";
 
 export default function PropertyForm() {
   const [images, setImages] = useState([]);
-  const { register, control, handleSubmit, watch, errors, getValues } = useForm({
+  const { register, control, handleSubmit, watch, errors, getValues, reset } = useForm({
     defaultValues: {
       type: "Piso",
       operation: "alquiler",
@@ -77,8 +77,8 @@ export default function PropertyForm() {
       });
     // Obtener el token del context
     // lamar al servicio de crear propiedad con el token mifuncion(token)
-    
-    e.target.reset(); // reset after form submit
+    setImages([])
+    reset(); // reset after form submit from react hook form
   };
 
   return (
@@ -147,6 +147,7 @@ export default function PropertyForm() {
             type="radio"
             label="Alquiler"
             name="operation"
+            id="operationVenta"
             value="alquiler"
             {...register("operation", { required: true })}
           />
@@ -154,6 +155,7 @@ export default function PropertyForm() {
             type="radio"
             label="Venta"
             name="operation"
+            id="operationAlquiler"
             value="venta"
             {...register("operation", { required: true })}
           />
@@ -246,7 +248,7 @@ export default function PropertyForm() {
             type="number"
             name="habitaciones"
             id="habitaciones"
-            {...register("habitaciones")}
+            {...register("habitaciones", { required: "true"})}
           />
         </Form.Group>
         <Form.Group className="mb-3">
@@ -255,7 +257,7 @@ export default function PropertyForm() {
             type="number"
             name="banios"
             id="banios"
-            {...register("banios")}
+            {...register("banios", { required: "true"})}
           />
         </Form.Group>
         <Form.Group className="mb-3">

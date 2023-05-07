@@ -202,8 +202,7 @@ const CardProperty = ({ ...props }) => {
         }
 
         { 
-          //user?.id !== props.user.id 
-          true
+          user !== null && user?.id !== props.user.id 
           ?
           gustado ? (<HiHeart className="heart-icon2" onClick={deleteLiked} />) : (<HiOutlineHeart className="heart-icon" onClick={addLiked} />) 
           :

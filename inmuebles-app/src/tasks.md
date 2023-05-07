@@ -21,7 +21,7 @@
 - [X] Cuando se quita un me gusta se eliminan todos, debería eliminarse solo el clicado
 - [ ] No sale el input radio del tipo de operacion en el formulario de nuevo inmueble
 - [ ] Una vez hecho el formulario de creacion de una propiedad borralo o que te mande al Home
-- [ ] Cada vez que se da a me gusta, en favoritos no se actualiza la card con el boton en rojo (Solo pasa si tenemos un like)
+- [X] Cada vez que se da a me gusta, en favoritos no se actualiza la card con el boton en rojo (Solo pasa si tenemos un like)
 - [X] No debería aparecer el boton de like si es la propiedad del usuario logeado
 - [X] Arreglar npm run build (No salen las imagenes de los inmuebles)
 ## Back-end

@@ -107,6 +107,8 @@ propertiesRouter.post('/', upload, async (request, response) => {
     door: body.puerta,
     price: body.precio,
     features: newFeatures,
+    baths: body.banios,
+    rooms: body.habitaciones,
     images: imagenes,
     descripcion: body.descripcion,
     date: new Date(),
